@@ -2,12 +2,14 @@ openapi: 3.0.0
 info:
   title: Messages API
   version: 1.0.0
+  # Add server address API base URL
 paths:
   /messages:
     get:
       summary: Get Messages
       description: Retrieves a list of messages.
       responses:
+      # Add responses for possible errors such as errors due to server errors or invalid requests
         '200':
           description: Successful response
           content:
@@ -35,7 +37,7 @@ paths:
                   - text: "Thanks, I'm fine. How about you?"
                     status: "sent"
   /messages/send:
-    get:
+    get: #method should be POST - cannot send a body in request for http GET methods
       summary: Send a Message
       requestBody:
         content:
@@ -46,5 +48,6 @@ paths:
                 text:
                   type: "string"
       responses:
-        '204':
+      # Add responses for possible errors such as errors due to server errors or invalid requests
+        '204': # Should be status code 200 for succesfully sent 
           description: Successfully sent
