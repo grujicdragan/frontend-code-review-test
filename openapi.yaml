@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Messages API
   version: 1.0.0
-  # Add server address API base URL
+  # Add server address and API base URL
 paths:
   /messages:
     get:
