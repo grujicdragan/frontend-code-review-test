@@ -37,7 +37,7 @@ paths:
                   - text: "Thanks, I'm fine. How about you?"
                     status: "sent"
   /messages/send:
-    get: #method should be POST - cannot send a body in request for http GET methods
+    get: #  Method should be POST - cannot send a body in request for http GET methods
       summary: Send a Message
       requestBody:
         content:
@@ -51,3 +51,4 @@ paths:
       # Add responses for possible errors such as errors due to server errors or invalid requests
         '204': # Should be status code 200 for succesfully sent 
           description: Successfully sent
+  # Add security section

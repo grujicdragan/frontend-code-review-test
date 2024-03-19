@@ -3,7 +3,7 @@ import {Component, Injectable, Input, OnInit} from '@angular/core';
 import {NgClass, NgForOf, NgIf} from "@angular/common"; 
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
-// Create separate folder for services and move this service there, also write unit tests for this service
+// Create separate folder for services and move this service there, also cover with unit tests this service
 @Injectable()
 class MessageService {
   messages: Message[] = [];
@@ -29,12 +29,12 @@ class Message { // Create new folders 'models' and move this to separate file 'm
     this.status = status;
   }
 
-  empty() {
-    return this.text === '';
+  empty() { 
+    return this.text === ''; // Remove return 
   }
 }
 
-// Generate new angular MessageComponent component
+// Generate new angular MessageComponent component and cover all components with unit tests
 @Component({
   selector: 'app-massage', // typo in selector - app-massage -> app-message
   standalone: true, // Use @NgModule to define and import all modules, remove this
@@ -61,7 +61,8 @@ class MessageComponent {
 @Component({
   selector: 'app-chat',
   standalone: true, // Use @NgModule to define and import all modules, remove this
-  providers: [MessageService], // Since we don't need own instance of MessageService for every instance of this component, remove this 
+  providers: [MessageService], // Since we don't need own instance of MessageService for every instance of this component, 
+  // remove this after changing injectable property in service ('in root') 
   imports: [
     NgForOf, // Remove unused imports 
     MessageComponent
@@ -98,7 +99,8 @@ class ChatComponent implements OnInit {
 @Component({
   selector: 'app-create-message',
   standalone: true, // Use @NgModule to define and import all modules, remove this
-  providers: [MessageService], // // Since we don't need own instance of MessageService (Doing only http request) for every instance of this component, remove this 
+  providers: [MessageService], // Since we don't need own instance of MessageService (Doing only http request) 
+  // for every instance of this component, remove this after changing injectable property in service ('in root')
   imports: [
     // Remove unused imports 
     ReactiveFormsModule,
